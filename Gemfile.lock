@@ -270,6 +270,7 @@ GEM
     rake (13.2.1)
     rdoc (6.7.0)
       psych (>= 4.0.0)
+    redcarpet (3.6.0)
     regexp_parser (2.9.2)
     reline (0.5.11)
       io-console (~> 0.5)
@@ -400,10 +401,12 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   kamal
+  nokogiri
   pg (~> 1.1)
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.0)
+  redcarpet
   rspec-rails
   rubocop-rails-omakase
   selenium-webdriver
