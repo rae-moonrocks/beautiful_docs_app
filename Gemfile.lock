@@ -159,6 +159,8 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     json (2.8.1)
+    jsonapi-serializer (2.2.0)
+      activesupport (>= 4.2)
     kamal (2.3.0)
       activesupport (>= 7.0)
       base64 (~> 0.2)
@@ -400,6 +402,7 @@ DEPENDENCIES
   faker
   importmap-rails
   jbuilder
+  jsonapi-serializer
   kamal
   nokogiri
   pg (~> 1.1)
