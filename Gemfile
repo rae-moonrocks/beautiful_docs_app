@@ -4,7 +4,7 @@ gem "clearance"
 gem "redcarpet"
 gem "nokogiri"
 gem "jsonapi-serializer"
-
+gem "rswag"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.0"

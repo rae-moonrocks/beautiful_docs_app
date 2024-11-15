@@ -1,0 +1,28 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/documents":
+    get:
+      summary: Retrieves all documents
+      tags:
+      - Documents
+      responses:
+        '200':
+          description: documents found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                required:
+                - id
+servers:
+- url: http://localhost:3000/
+  variables:
+    defaultHost:
+      default: http://localhost:3000/
