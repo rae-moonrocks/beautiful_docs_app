@@ -31,7 +31,41 @@ RSpec.configure do |config|
             }
           }
         }
-      ]
+      ],
+      components: {
+        schemas: {
+          documents: {
+            type: 'object',
+            properties: {
+              id: { type: 'integer' },
+              type: { type: 'string' },
+              attributes: {
+                type: 'object',
+                properties: {
+                  title: { type: 'string' },
+                  url: { type: 'string' },
+                  description: { type: 'string' },
+                  contributor: { type: 'string' }
+                },
+                required: [ 'url' ]
+              }
+            }
+          },
+          errors: {
+            type: 'object',
+            properties: {
+              source: {
+                type: 'object',
+                properties: {
+                  pointer: { type: 'string' }
+                }
+              },
+              detail: { type: 'string' },
+              status: { type: 'integer' }
+            }
+          }
+        }
+      }
     }
   }
 

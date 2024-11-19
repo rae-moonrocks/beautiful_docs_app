@@ -6,23 +6,58 @@ info:
 paths:
   "/documents":
     get:
-      summary: Retrieves all documents
+      summary: Lists all documents
       tags:
       - Documents
       responses:
         '200':
-          description: documents found
+          description: succesful
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  id:
-                    type: integer
-                required:
-                - id
+                "$ref": "#/components/schemas/documents"
+        '404':
+          description: documents not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/errors"
 servers:
 - url: http://localhost:3000/
   variables:
     defaultHost:
       default: http://localhost:3000/
+components:
+  schemas:
+    documents:
+      type: object
+      properties:
+        id:
+          type: integer
+        type:
+          type: string
+        attributes:
+          type: object
+          properties:
+            title:
+              type: string
+            url:
+              type: string
+            description:
+              type: string
+            contributor:
+              type: string
+          required:
+          - url
+    errors:
+      type: object
+      properties:
+        source:
+          type: object
+          properties:
+            pointer:
+              type: string
+        detail:
+          type: string
+        status:
+          type: integer
