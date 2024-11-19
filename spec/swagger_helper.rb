@@ -18,17 +18,30 @@ RSpec.configure do |config|
     'v1/swagger.yaml' => {
       openapi: '3.0.1',
       info: {
-        title: 'API V1',
+        description: 'The Beautiful Docs API V1 is a REST interface designed to transform the [Beautiful Docs repository](https://github.com/matheusfelipeog/beautiful-docs) into a structured and accessible API. This API provides access to the documentation resources curated by [matheusfelipeog](https://github.com/matheusfelipeog) and other developers. Built to enhance the usability of the original repository, this API simplifies the process of integrating and exploring high-quality documentation by offering endpoints tailored for easy access and interaction.',
+        termsOfService: "http://#{ENV.fetch('HOST', 'localhost')}:#{ENV.fetch('PORT', '3000')}/terms",
+        contact: { email: 'rachel@moonrocks.dev' },
+        title: 'Beautiful Docs API V1',
         version: 'v1'
       },
       paths: {},
       servers: [
         {
-          url: 'http://localhost:3000/',
+          url: "http://#{ENV.fetch('HOST', 'localhost')}:#{ENV.fetch('PORT', '3000')}",
           variables: {
             defaultHost: {
-              default: 'http://localhost:3000/'
+              default: ENV.fetch('HOST', 'localhost')
             }
+          }
+        }
+      ],
+      tags: [
+        {
+          name: 'Documents',
+          description: 'All the beautiful docs in one place',
+          externalDocs: {
+              description: 'Original source',
+              url: 'https://github.com/matheusfelipeog/beautiful-docs'
           }
         }
       ],
@@ -37,31 +50,47 @@ RSpec.configure do |config|
           documents: {
             type: 'object',
             properties: {
-              id: { type: 'integer' },
-              type: { type: 'string' },
-              attributes: {
-                type: 'object',
-                properties: {
-                  title: { type: 'string' },
-                  url: { type: 'string' },
-                  description: { type: 'string' },
-                  contributor: { type: 'string' }
-                },
-                required: [ 'url' ]
+              data: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {
+                    id: { type: 'integer' },
+                    type: { type: 'string' },
+                    attributes: {
+                      type: 'object',
+                      properties: {
+                        title: { type: 'string' },
+                        url: { type: 'string' },
+                        description: { type: 'string' },
+                        contributor: { type: 'string' }
+                      },
+                      required: [ 'url' ]
+                    }
+                  }
+                }
               }
             }
           },
           errors: {
             type: 'object',
             properties: {
-              source: {
-                type: 'object',
-                properties: {
-                  pointer: { type: 'string' }
+              errors: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {
+                    source: {
+                      type: 'object',
+                      properties: {
+                        pointer: { type: 'string' }
+                      }
+                    },
+                    detail: { type: 'string' },
+                    status: { type: 'integer' }
+                  }
                 }
-              },
-              detail: { type: 'string' },
-              status: { type: 'integer' }
+              }
             }
           }
         }
