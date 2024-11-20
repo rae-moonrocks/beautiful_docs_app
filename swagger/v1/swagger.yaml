@@ -32,6 +32,30 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/errors"
+  "/documents/{id}":
+    get:
+      summary: Retrieves a document
+      tags:
+      - Documents
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: succesful
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/documents"
+        '404':
+          description: document not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/errors"
 servers:
 - url: http://localhost:3000
   variables:
@@ -54,7 +78,7 @@ components:
             type: object
             properties:
               id:
-                type: integer
+                type: string
               type:
                 type: string
               attributes:

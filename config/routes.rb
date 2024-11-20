@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   #
 
-  resources :documents, only: [ :index ]
+  resources :documents, only: [ :index, :show ]
 
   get :terms, to: "site_pages#terms"
 end
