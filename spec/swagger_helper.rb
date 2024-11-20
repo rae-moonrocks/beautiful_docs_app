@@ -19,7 +19,7 @@ RSpec.configure do |config|
       openapi: '3.0.1',
       info: {
         description: 'The Beautiful Docs API V1 is a REST interface designed to transform the [Beautiful Docs repository](https://github.com/matheusfelipeog/beautiful-docs) into a structured and accessible API. This API provides access to the documentation resources curated by [matheusfelipeog](https://github.com/matheusfelipeog) and other developers. Built to enhance the usability of the original repository, this API simplifies the process of integrating and exploring high-quality documentation by offering endpoints tailored for easy access and interaction.',
-        termsOfService: "http://#{ENV.fetch('HOST', 'localhost')}:#{ENV.fetch('PORT', '3000')}/terms",
+        termsOfService: "#{ENV.fetch('SERVER_URL')}/terms",
         contact: { email: 'rachel@moonrocks.dev' },
         title: 'Beautiful Docs API V1',
         version: 'v1'
@@ -27,7 +27,7 @@ RSpec.configure do |config|
       paths: {},
       servers: [
         {
-          url: "http://#{ENV.fetch('HOST', 'localhost')}:#{ENV.fetch('PORT', '3000')}",
+          url: ENV.fetch('SERVER_URL', 'localhost'),
           variables: {
             defaultHost: {
               default: ENV.fetch('HOST', 'localhost')

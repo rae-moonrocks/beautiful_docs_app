@@ -417,6 +417,7 @@ DEPENDENCIES
   capybara
   clearance
   debug
+  dotenv
   factory_bot_rails
   faker
   friendly_id (~> 5.5.0)
