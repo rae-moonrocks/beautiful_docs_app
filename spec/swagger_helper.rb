@@ -55,7 +55,7 @@ RSpec.configure do |config|
                 items: {
                   type: 'object',
                   properties: {
-                    id: { type: 'integer' },
+                    id: { type: 'string' },
                     type: { type: 'string' },
                     attributes: {
                       type: 'object',

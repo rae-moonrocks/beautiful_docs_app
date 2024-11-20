@@ -54,7 +54,7 @@ components:
             type: object
             properties:
               id:
-                type: integer
+                type: string
               type:
                 type: string
               attributes:
