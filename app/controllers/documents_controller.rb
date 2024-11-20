@@ -43,7 +43,7 @@ class DocumentsController < ApplicationController
   end
 
   def set_document
-    @document ||= Document.friendly.find(document_params[:id])
+    @document ||= Document.friendly.find(document_params[:id], allow_nil: true)
   end
 
   def document_params

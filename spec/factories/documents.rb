@@ -5,5 +5,6 @@ FactoryBot.define do
     url { Faker::Internet.url }
     contributor { Faker::Name.name }
     contributor_type { [ 'Github', 'Twitter' ].sample }
+    slug { title.parameterize }
   end
 end
