@@ -6,13 +6,24 @@ html        =  Redcarpet::Markdown.new(Redcarpet::Render::HTML).render(file_cont
 parsed_data = Nokogiri::HTML.parse(html)
 line_items = parsed_data.css('li')
 
+# Assumes if there are multiple links in a list item, the last link is the contributor type
+def format_contributor_type(a_elements)
+  contributor_type = a_elements.last
+  if contributor_type['href']&.include?('twitter.com')
+    'Twitter'
+  elsif contributor_type['href']&.include?('github.com')
+    'GitHub'
+  end
+end
+
 formatted_items = line_items.map do |li|
   {
     title: li.at_css('a')&.text,
     url: li.at_css('a')&.[]('href'),
     description: li.children.reject { |child| child.name == 'a' }.map(&:text).join.strip.sub(/^-\s*/, '').sub(/\s\(contributed by \)$/, ''),
     contributor: li.css('a').map { |a| a.text if a['href']&.include?('twitter.com') || a['href']&.include?('github.com') }.compact.join(', '),
-    contributor_type: li.css('a').map { |a| 'Twitter' if a['href']&.include?('twitter.com') || 'GitHub' if a['href']&.include?('github.com') }.compact.join(', ')
+    contributor_type: format_contributor_type(li.css('a')),
+    unparsed_html: li.to_html
   }
 end.compact
 
