@@ -21,3 +21,7 @@ services:
         sync: false
       - key: WEB_CONCURRENCY
         value: 4 # sensible default
+      - key: SERVER_URL
+        value: https://beautiful-docs-app.onrender.com
+      - key: HOST
+        value: beautiful-docs-app
