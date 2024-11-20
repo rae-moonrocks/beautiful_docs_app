@@ -8,7 +8,7 @@ info:
     other developers. Built to enhance the usability of the original repository, this
     API simplifies the process of integrating and exploring high-quality documentation
     by offering endpoints tailored for easy access and interaction.
-  termsOfService: http://localhost:3000/terms
+  termsOfService: https://beautiful-docs-app.onrender.com/terms
   contact:
     email: rachel@moonrocks.dev
   title: Beautiful Docs API V1
@@ -57,10 +57,10 @@ paths:
               schema:
                 "$ref": "#/components/schemas/errors"
 servers:
-- url: http://localhost:3000
+- url: https://beautiful-docs-app.onrender.com
   variables:
     defaultHost:
-      default: localhost
+      default: beautiful-docs-app
 tags:
 - name: Documents
   description: All the beautiful docs in one place

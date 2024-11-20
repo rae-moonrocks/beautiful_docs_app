@@ -27,10 +27,10 @@ RSpec.configure do |config|
       paths: {},
       servers: [
         {
-          url: ENV.fetch('SERVER_URL', 'localhost'),
+          url: ENV.fetch('SERVER_URL'),
           variables: {
             defaultHost: {
-              default: ENV.fetch('HOST', 'localhost')
+              default: ENV.fetch('HOST')
             }
           }
         }
