@@ -8,6 +8,7 @@
 # You can control the number of workers using ENV["WEB_CONCURRENCY"]. You
 # should only set this value when you want to run 2 or more workers. The
 # default is already 1.
+# ENV["WEB_CONCURRENCY"] ||= "4"
 #
 # The ideal number of threads per worker depends both on how much time the
 # application spends waiting for IO operations and on how much you wish to

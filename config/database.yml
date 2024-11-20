@@ -81,6 +81,7 @@ test:
 production:
   primary: &primary_production
     <<: *default
+    url: <%= ENV["DATABASE_URL"] %>
     database: beautiful_docs_production
     username: beautiful_docs
     password: <%= ENV["BEAUTIFUL_DOCS_DATABASE_PASSWORD"] %>
