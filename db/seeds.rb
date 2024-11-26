@@ -8,5 +8,6 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+User.first_or_create!(email: 'rachel@moonrocks.dev', password: 'password', password_confirmation: 'password', role: 1)
 
 load File.join(File.dirname(__FILE__), 'seeds', 'documents.rb')
