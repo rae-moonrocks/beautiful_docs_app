@@ -92,6 +92,27 @@ RSpec.configure do |config|
                 }
               }
             }
+          },
+          errors_422: {
+            type: 'object',
+            properties: {
+              errors: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {
+                    source: {
+                      type: 'object',
+                      properties: {
+                        pointer: { type: 'string', example: '/documents' }
+                      }
+                    },
+                    detail: { type: 'string', example: 'Invalid Request' },
+                    status: { type: 'integer', example: 422 }
+                  }
+                }
+              }
+            }
           }
         }
       }

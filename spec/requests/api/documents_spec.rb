@@ -48,7 +48,7 @@ RSpec.describe 'api/documents', type: :request do
         end
 
         response '422', 'invalid request' do
-          schema '$ref' => '#/components/schemas/errors'
+          schema '$ref' => '#/components/schemas/errors_422'
           run_test!
         end
       end
