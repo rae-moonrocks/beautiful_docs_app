@@ -55,15 +55,15 @@ RSpec.configure do |config|
                 items: {
                   type: 'object',
                   properties: {
-                    id: { type: 'string' },
-                    type: { type: 'string' },
+                    id: { type: 'string', example: '99' },
+                    type: { type: 'string', example: 'documents' },
                     attributes: {
                       type: 'object',
                       properties: {
-                        title: { type: 'string' },
-                        url: { type: 'string' },
-                        description: { type: 'string' },
-                        contributor: { type: 'string' }
+                        title: { type: 'string', example: 'The Ruby Style Guide' },
+                        url: { type: 'string', example: 'www.examples.com/ruby-style-guide' },
+                        description: { type: 'string', example: 'A community-driven Ruby coding style guide' },
+                        contributor: { type: 'string', example: 'username@github.com' }
                       },
                       required: [ 'url' ]
                     }
@@ -83,11 +83,11 @@ RSpec.configure do |config|
                     source: {
                       type: 'object',
                       properties: {
-                        pointer: { type: 'string' }
+                        pointer: { type: 'string', example: '/documents/99' }
                       }
                     },
-                    detail: { type: 'string' },
-                    status: { type: 'integer' }
+                    detail: { type: 'string', example: 'Document not found' },
+                    status: { type: 'integer', example: 404 }
                   }
                 }
               }
