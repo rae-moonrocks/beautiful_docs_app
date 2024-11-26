@@ -52,11 +52,18 @@ paths:
                       properties:
                         title:
                           type: string
-                          example: Embwer Hamsdtewr
+                          example: Sequi autem accusantium ab.
                         url:
                           type: string
                           format: uri
-                          example: httsp://examplesx.com/imssages/ddsraosd.jpg
+                          example: http://examples.com/sequi-autem-accusantium-ab
+                        description:
+                          type: string
+                          example: A document illustrating the technicalities of Sequi
+                            autem accusantium ab.
+                        contributor:
+                          type: string
+                          example: username@github.com
     get:
       summary: Lists all documents
       tags:
@@ -121,19 +128,25 @@ components:
             properties:
               id:
                 type: string
+                example: '99'
               type:
                 type: string
+                example: documents
               attributes:
                 type: object
                 properties:
                   title:
                     type: string
+                    example: The Ruby Style Guide
                   url:
                     type: string
+                    example: www.examples.com/ruby-style-guide
                   description:
                     type: string
+                    example: A community-driven Ruby coding style guide
                   contributor:
                     type: string
+                    example: username@github.com
                 required:
                 - url
     errors:
@@ -149,7 +162,10 @@ components:
                 properties:
                   pointer:
                     type: string
+                    example: "/documents/99"
               detail:
                 type: string
+                example: Document not found
               status:
                 type: integer
+                example: 404

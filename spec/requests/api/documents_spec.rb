@@ -4,6 +4,7 @@ RSpec.describe 'api/documents', type: :request do
   describe 'Documents API' do
     path '/documents' do
       post 'Creates a document' do
+        example_title  = Faker::Lorem.sentence
         tags 'Documents'
         consumes 'application/json'
         produces 'application/json'
@@ -17,8 +18,10 @@ RSpec.describe 'api/documents', type: :request do
                 attributes: {
                   type: :object,
                   properties: {
-                    title: { type: :string, example: 'Embwer Hamsdtewr' },
-                    url: { type: :string, format: :uri, example: 'httsp://examplesx.com/imssages/ddsraosd.jpg' }
+                    title: { type: :string, example: example_title },
+                    url: { type: :string, format: :uri, example: "http://examples.com/#{example_title.parameterize}" },
+                    description: { type: :string, example: "A document illustrating the technicalities of #{example_title}" },
+                    contributor: { type: :string, example: 'username@github.com' }
                   }
                 }
               }
