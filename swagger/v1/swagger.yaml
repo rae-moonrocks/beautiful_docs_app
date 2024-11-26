@@ -15,6 +15,48 @@ info:
   version: v1
 paths:
   "/documents":
+    post:
+      summary: Creates a document
+      tags:
+      - Documents
+      parameters: []
+      responses:
+        '201':
+          description: succesful
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/documents"
+        '422':
+          description: invalid request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/errors"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - documents
+                      example: documents
+                    attributes:
+                      type: object
+                      properties:
+                        title:
+                          type: string
+                          example: Embwer Hamsdtewr
+                        url:
+                          type: string
+                          format: uri
+                          example: httsp://examplesx.com/imssages/ddsraosd.jpg
     get:
       summary: Lists all documents
       tags:
