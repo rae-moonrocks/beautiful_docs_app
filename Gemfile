@@ -1,6 +1,5 @@
 source "https://rubygems.org"
 
-gem "clearance"
 gem "redcarpet"
 gem "nokogiri"
 gem "jsonapi-serializer"
