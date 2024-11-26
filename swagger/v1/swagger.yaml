@@ -8,13 +8,13 @@ info:
     other developers. Built to enhance the usability of the original repository, this
     API simplifies the process of integrating and exploring high-quality documentation
     by offering endpoints tailored for easy access and interaction.
-  termsOfService: http://localhost:3000/terms
+  termsOfService: https://beautiful-docs-app.onrender.com/terms
   contact:
     email: rachel@moonrocks.dev
   title: Beautiful Docs API V1
   version: v1
 paths:
-  "/documents":
+  "/api/v1/documents":
     post:
       summary: Creates a document
       tags:
@@ -52,15 +52,15 @@ paths:
                       properties:
                         title:
                           type: string
-                          example: Illum quam pariatur recusandae.
+                          example: Nemo harum iusto magnam.
                         url:
                           type: string
                           format: uri
-                          example: http://examples.com/illum-quam-pariatur-recusandae
+                          example: http://examples.com/nemo-harum-iusto-magnam
                         description:
                           type: string
-                          example: A document illustrating the technicalities of Illum
-                            quam pariatur recusandae.
+                          example: A document illustrating the technicalities of Nemo
+                            harum iusto magnam.
                         contributor:
                           type: string
                           example: username@github.com
@@ -81,7 +81,7 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/errors"
-  "/documents/{id}":
+  "/api/v1/documents/{id}":
     get:
       summary: Retrieves a document
       tags:
@@ -106,7 +106,7 @@ paths:
               schema:
                 "$ref": "#/components/schemas/errors"
 servers:
-- url: http://localhost:3000
+- url: https://beautiful-docs-app.onrender.com
   variables:
     defaultHost:
       default: localhost

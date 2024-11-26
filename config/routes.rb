@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "site_pages#getting_started"
 
+  draw :api
+
   resources :documents, only: [ :index, :show, :create ]
 
   get :terms, to: "site_pages#terms"

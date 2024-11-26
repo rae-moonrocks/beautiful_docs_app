@@ -2,7 +2,7 @@ require 'swagger_helper'
 
 RSpec.describe 'api/documents', type: :request do
   describe 'Documents API' do
-    path '/documents' do
+    path '/api/v1/documents' do
       post 'Creates a document' do
         example_title  = Faker::Lorem.sentence
         tags 'Documents'
@@ -88,7 +88,7 @@ RSpec.describe 'api/documents', type: :request do
       end
     end
 
-    path '/documents/{id}' do
+    path '/api/v1/documents/{id}' do
       get 'Retrieves a document' do
         tags 'Documents'
         parameter name: :id, in: :path, type: :string
