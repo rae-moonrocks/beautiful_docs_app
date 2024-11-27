@@ -22,4 +22,11 @@ Rails.application.routes.draw do
 
   get :terms, to: "site_pages#terms"
   get :getting_started, to: "site_pages#getting_started"
+
+  namespace :users do
+    # get "/applications", to: "applications#new"
+    # post "/applications", to: "applications#create"
+    # get "/applications/:id", to: "applications#show"
+    resources :applications, only: [ :new, :create, :show ]
+  end
 end
