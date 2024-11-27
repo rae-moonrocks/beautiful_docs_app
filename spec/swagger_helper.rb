@@ -24,6 +24,9 @@ RSpec.configure do |config|
         title: 'Beautiful Docs API V1',
         version: 'v1'
       },
+      security: [
+        bearerAuth: []
+      ],
       paths: {},
       servers: [
         {
@@ -113,6 +116,12 @@ RSpec.configure do |config|
                 }
               }
             }
+          }
+        },
+        securitySchemes: {
+          bearerAuth: {
+            type: :http,
+            scheme: :bearer
           }
         }
       }

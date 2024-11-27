@@ -3,7 +3,6 @@ module Api
     module Users
         class RegistrationsController < ApiController
           skip_before_action :doorkeeper_authorize!, only: [ :create ]
-
           include DoorkeeperRegisterable
 
           def create
