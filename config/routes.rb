@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  use_doorkeeper
+  devise_for :users
   mount Rswag::Ui::Engine => "/api-docs"
   mount Rswag::Api::Engine => "/api-docs"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -12,10 +14,19 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  # root "posts#index"
-  #
+  root "site_pages#getting_started"
+
+  draw :api
 
   resources :documents, only: [ :index, :show, :create ]
 
   get :terms, to: "site_pages#terms"
+  get :getting_started, to: "site_pages#getting_started"
+
+  namespace :users do
+    # get "/applications", to: "applications#new"
+    # post "/applications", to: "applications#create"
+    # get "/applications/:id", to: "applications#show"
+    resources :applications, only: [ :new, :create, :show ]
+  end
 end
