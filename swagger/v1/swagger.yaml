@@ -13,6 +13,8 @@ info:
     email: rachel@moonrocks.dev
   title: Beautiful Docs API V1
   version: v1
+security:
+- bearerAuth: []
 paths:
   "/api/v1/documents":
     post:
@@ -52,15 +54,15 @@ paths:
                       properties:
                         title:
                           type: string
-                          example: Nemo harum iusto magnam.
+                          example: Nisi inventore eius at.
                         url:
                           type: string
                           format: uri
-                          example: http://examples.com/nemo-harum-iusto-magnam
+                          example: http://examples.com/nisi-inventore-eius-at
                         description:
                           type: string
-                          example: A document illustrating the technicalities of Nemo
-                            harum iusto magnam.
+                          example: A document illustrating the technicalities of Nisi
+                            inventore eius at.
                         contributor:
                           type: string
                           example: username@github.com
@@ -109,7 +111,7 @@ servers:
 - url: https://beautiful-docs-app.onrender.com
   variables:
     defaultHost:
-      default: localhost
+      default: beautiful-docs-app.onrender
 tags:
 - name: Documents
   description: All the beautiful docs in one place
@@ -189,3 +191,7 @@ components:
               status:
                 type: integer
                 example: 422
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

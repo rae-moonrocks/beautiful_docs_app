@@ -1,6 +1,7 @@
 class Api::V1::DocumentsController < ApplicationController
   before_action :set_document, only: [ :show ]
   skip_before_action :verify_authenticity_token
+  before_action :doorkeeper_authorize!
 
   def index
     @documents = Document.all

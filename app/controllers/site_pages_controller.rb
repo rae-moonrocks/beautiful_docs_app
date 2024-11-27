@@ -1,4 +1,11 @@
 class SitePagesController < ApplicationController
+  def home
+    render "site_pages/home"
+  end
+
+  def contact
+    render "site_pages/contact"
+  end
   def getting_started
     # @application = Doorkeeper::Application.find_by(name: "Moonrocks - web")
     # @application = {
