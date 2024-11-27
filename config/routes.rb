@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  root "site_pages#getting_started"
+  root "site_pages#home"
 
   draw :api
 
@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   get :terms, to: "site_pages#terms"
   get :getting_started, to: "site_pages#getting_started"
+  get :contact, to: "site_pages#contact"
 
   namespace :users do
     # get "/applications", to: "applications#new"

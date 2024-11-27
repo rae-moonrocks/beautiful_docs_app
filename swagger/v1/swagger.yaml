@@ -109,7 +109,7 @@ servers:
 - url: https://beautiful-docs-app.onrender.com
   variables:
     defaultHost:
-      default: localhost
+      default: beautiful-docs-app.onrender
 tags:
 - name: Documents
   description: All the beautiful docs in one place
