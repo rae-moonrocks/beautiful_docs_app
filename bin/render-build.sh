@@ -3,6 +3,7 @@
 set -o errexit
 
 bundle install
+npm install flowbite    
 bundle exec rails assets:precompile
 bundle exec rails assets:clean
 
