@@ -28,6 +28,6 @@ Rails.application.routes.draw do
     # get "/applications", to: "applications#new"
     # post "/applications", to: "applications#create"
     # get "/applications/:id", to: "applications#show"
-    resources :applications, only: [ :new, :create, :show ]
+    resources :applications, only: [ :new, :create, :show, :index ]
   end
 end
