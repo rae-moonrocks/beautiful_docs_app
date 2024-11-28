@@ -25,9 +25,9 @@
                     <li>
                       <a href=<%=users_applications_path%> class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Applications</a>
                     </li>
-                    <li>
+                    <%# <li>
                       <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
-                    </li>
+                    </li> %>
                     <li>
                         <%= button_to "Sign out", destroy_user_session_path, 
                           method: :delete,

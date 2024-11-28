@@ -29,5 +29,6 @@ Rails.application.routes.draw do
     # post "/applications", to: "applications#create"
     # get "/applications/:id", to: "applications#show"
     resources :applications, only: [ :new, :create, :show, :index ]
+    post "/applications/:id/refresh_token", to: "applications#refresh_token", as: :refresh_token
   end
 end
