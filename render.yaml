@@ -2,13 +2,13 @@ databases:
   - name: beautiful_docs
     databaseName: beautiful_docs_production
     user: beautiful_docs
-    plan: free
+    plan: starter
 
 services:
   - type: web
     name:  beautiful_docs
     runtime: ruby
-    plan: free
+    plan: starter
     buildCommand: "./bin/render-build.sh"
     # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
     startCommand: "bundle exec rails server"
