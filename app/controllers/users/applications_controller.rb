@@ -52,6 +52,7 @@ module Users
     def create
       @application = Doorkeeper::Application.create(name: application_params[:name], redirect_uri: "", scopes: "", owner_id: current_user.id, owner_type: "User")
       if @application.save
+        @user_access_token = create_access_token(current_user, @application)
         redirect_to users_application_path(@application.id)
       else
         flash[:error] = @application.errors.full_messages.join(", ")
