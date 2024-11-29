@@ -1,40 +1,82 @@
-<div id="getting_started" class="grid grid-cols-1 gap-4">
-    <h1 class="text-2xl font-bold">Getting Started</h1>
+<div id="getting_started" class="container mx-auto p-4">
+    <h1 class="text-2xl font-bold mb-4">Getting Started</h1>
     <div>
         <ol class="space-y-4 text-gray-500 list-decimal list-inside dark:text-gray-400">
+            <!-- Step 1 -->
             <li>
-                Create an account at <span class="font-medium text-blue-600 dark:text-blue-500 hover:underline"><a href="<%=ENV['SERVER_URL']%>/users/sign_up"><%=ENV['SERVER_URL']%>/users/sign_up</a></span>
+                Create an account at 
+                <a href="<%=ENV['SERVER_URL']%>/users/sign_up" 
+                   class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                   <%=ENV['SERVER_URL']%>/users/sign_up
+                </a>
             </li>
+
+            <!-- Step 2 -->
             <li>
-                Navigate to the applications page to create a new app <span class="font-medium text-blue-600 dark:text-blue-500 hover:underline"><a href="<%=ENV['SERVER_URL']%>/users/applications"><%=ENV['SERVER_URL']%>/users/applications</a></span>
-                <img class="max-h-28 hover:max-h-screen border border-solid border-gray-600" src="<%=asset_path('applications_new.png')%>"/>
+                Navigate to the applications page to create a new app 
+                <a href="<%=ENV['SERVER_URL']%>/users/applications" 
+                   class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                   <%=ENV['SERVER_URL']%>/users/applications
+                </a>
+                <div class="flex justify-center mt-2">
+                    <img class="max-h-64 hover:max-h-screen border border-solid border-gray-600" 
+                         src="<%=asset_path('applications_new.png')%>" />
+                </div>
             </li>
+
+            <!-- Step 3 -->
             <li>
-                Create an application 
-                 <img class="max-h-28 hover:max-h-screen border border-solid border-gray-600" src="<%=asset_path('applications_create.png')%>"/>
+                Create an application
+                <div class="flex justify-center mt-2">
+                    <img class="max-h-64 hover:max-h-screen border border-solid border-gray-600" 
+                         src="<%=asset_path('applications_create.png')%>" />
+                </div>
             </li>
+
+            <!-- Step 4 -->
             <li>
-               Grab your access token
-                <img class="max-h-28 hover:max-h-screen border border-solid border-gray-600" src="<%=asset_path('applications_show.png')%>"/>
+                Grab your access token
+                <div class="flex justify-center mt-2">
+                    <img class="max-h-64 hover:max-h-screen border border-solid border-gray-600" 
+                         src="<%=asset_path('applications_show.png')%>" />
+                </div>
             </li>
+
+            <!-- Step 5 -->
             <li>
-                Make requests
-                <ul class="ps-5 mt-2 space-y-1 list-disc list-inside">
-                    <li 
-                        class="list-inside">
-                        <span class="font-medium text-blue-600 dark:text-blue-500 hover:underline"><a href="<%=ENV['SERVER_URL']%>/api-docs/index.html">Swagger</a></span>
-                        <img class="max-h-28 hover:max-h-screen border border-solid border-gray-600" src="<%=asset_path('swagger_auth.png')%>">
+                Make requests:
+                <ul class="list-disc list-inside ps-5 mt-2 space-y-4">
+                    <li>
+                        <a href="<%=ENV['SERVER_URL']%>/api-docs/index.html" 
+                           class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                           Swagger
+                        </a>
+                        <div class="flex justify-center mt-2">
+                            <img class="max-h-64 hover:max-h-screen border border-solid border-gray-600" 
+                                 src="<%=asset_path('swagger_auth.png')%>" />
+                        </div>
                     </li>
                     <li>
-                        <span class="font-medium text-blue-600 dark:text-blue-500 hover:underline"><a href="https://www.postman.com/lunar-module-pilot-45241596/moonrocks-dev/documentation/j8dh5oq/beautiful-docs-app">Postman</a></span>
-                        <img class="max-h-28 hover:max-h-screen border border-solid border-gray-600" src="<%=asset_path('postman_auth.png')%>">
+                        <a href="https://www.postman.com/lunar-module-pilot-45241596/moonrocks-dev" 
+                           class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                           Postman
+                        </a>
+                        <div class="flex justify-center mt-2">
+                            <img class="max-h-64 hover:max-h-screen border border-solid border-gray-600" 
+                                 src="<%=asset_path('postman_auth.png')%>" />
+                        </div>
                     </li>
                 </ul>
             </li>
+
+            <!-- Step 6 -->
             <li>
                 Refresh token
-                <img class="max-h-28 hover:max-h-screen border border-solid border-gray-600" src="<%=asset_path('refresh_token.png')%>">
+                <div class="flex justify-center mt-2">
+                    <img class="max-h-64 hover:max-h-screen border border-solid border-gray-600" 
+                         src="<%=asset_path('refresh_token.png')%>" />
+                </div>
             </li>
         </ol>
     </div>
-</div>
+</
