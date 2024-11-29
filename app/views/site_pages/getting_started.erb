@@ -1,19 +1,40 @@
 <div id="getting_started" class="grid grid-cols-1 gap-4">
     <h1 class="text-2xl font-bold">Getting Started</h1>
     <div>
-        1) create an account
+        <ol class="space-y-4 text-gray-500 list-decimal list-inside dark:text-gray-400">
+            <li>
+                Create an account at <span class="font-medium text-blue-600 dark:text-blue-500 hover:underline"><a href="<%=ENV['SERVER_URL']%>/users/sign_up"><%=ENV['SERVER_URL']%>/users/sign_up</a></span>
+            </li>
+            <li>
+                Navigate to the applications page to create a new app <span class="font-medium text-blue-600 dark:text-blue-500 hover:underline"><a href="<%=ENV['SERVER_URL']%>/users/applications"><%=ENV['SERVER_URL']%>/users/applications</a></span>
+                <img class="max-h-28 hover:max-h-screen border border-solid border-gray-600" src="<%=asset_path('applications_new.png')%>"/>
+            </li>
+            <li>
+                Create an application 
+                 <img class="max-h-28 hover:max-h-screen border border-solid border-gray-600" src="<%=asset_path('applications_create.png')%>"/>
+            </li>
+            <li>
+               Grab your access token
+                <img class="max-h-28 hover:max-h-screen border border-solid border-gray-600" src="<%=asset_path('applications_show.png')%>"/>
+            </li>
+            <li>
+                Make requests
+                <ul class="ps-5 mt-2 space-y-1 list-disc list-inside">
+                    <li 
+                        class="list-inside">
+                        <span class="font-medium text-blue-600 dark:text-blue-500 hover:underline"><a href="<%=ENV['SERVER_URL']%>/api-docs/index.html">Swagger</a></span>
+                        <img class="max-h-28 hover:max-h-screen border border-solid border-gray-600" src="<%=asset_path('swagger_auth.png')%>">
+                    </li>
+                    <li>
+                        <span class="font-medium text-blue-600 dark:text-blue-500 hover:underline"><a href="https://www.postman.com/lunar-module-pilot-45241596/moonrocks-dev/documentation/j8dh5oq/beautiful-docs-app">Postman</a></span>
+                        <img class="max-h-28 hover:max-h-screen border border-solid border-gray-600" src="<%=asset_path('postman_auth.png')%>">
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Refresh token
+                <img class="max-h-28 hover:max-h-screen border border-solid border-gray-600" src="<%=asset_path('refresh_token.png')%>">
+            </li>
+        </ol>
     </div>
-
-    <div>
-        2) create an app
-    </div>
-
-    <div>
-        3) get your client id and client secret
-    </div>
-
-    <div>
-        4) start using the API 
-    </div>
-
 </div>
