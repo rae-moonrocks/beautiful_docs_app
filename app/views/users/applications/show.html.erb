@@ -1,6 +1,5 @@
 <h1>Application Details</h1>
 
-
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -11,13 +10,17 @@
             </tr>
         </thead>
         <tbody>
-            <% @application.attributes.each do |attribute| %>
             <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                 <td class="px-6 py-4">
-                  <%= attribute[0] %> :  <%= attribute[1] %>
+                  client_id:  <%= @application.uid %>
                 </td>
             </tr>
-            <% end %>
+            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                <td class="px-6 py-4">
+                  client_secret:  <%= @application.secret %>
+                </td>
+            </tr>
+
             <tr class="">
                 <td class="px-6 py-4">
                     Access token: <%= @access_token&.token %>
