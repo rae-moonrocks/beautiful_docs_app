@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   draw :api
 
-  resources :documents, only: [ :index, :show, :create ]
+  resources :documents, only: [ :index, :show ]
 
   get :terms, to: "site_pages#terms"
   get :getting_started, to: "site_pages#getting_started"
