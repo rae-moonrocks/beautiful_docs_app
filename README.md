@@ -5,7 +5,7 @@ Clone the repository from GitHub
 ```
 git@github.com:rachel-moonrocks/beautiful_docs_app.git
 ```
-Install all the gems
+Install gems
 ```
 bundle install
 ```
