@@ -1,50 +1,49 @@
-<%# 
-<h1 class="text-4xl font-bold text-center">Welcome to My Website</h1>
-<p class="text-gray-600 text-lg">This is a paragraph with lighter text.</p> %>
+<div class="max-w-4xl mx-auto p-6 space-y-12">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
 
-<div class="grid grid-cols-1 gap-4 items-center">
-    <h1 class="text-2xl font-bold">What is this app?</h1>
-    <p>
-        As a software engineer with an interest in documentation, I wanted to create a way to explore the different avenues of documenting code available. What better way than creating an API and app to house the different methods and tools available for technical documentation, e.g. Open API and Swagger, Postman, Gitbook, Getting Started docs, blogs, etc.
+        <!-- Section 1: What is this app? -->
+        <section class="space-y-4 mb-12">
+            <h2 class="text-3xl font-bold text-gray-800">What is this app?</h2>
+            <p class="text-lg text-gray-700 leading-relaxed">
+                As a software engineer dedicated to clear and effective communication, I wanted to explore the different methods and techniques for documenting code.
+                What better way to do this than by building an API/app that showcases the different methods and tools available for technical documentation?
+            </p>
+            <p class="text-lg text-gray-700 leading-relaxed">
+               This app was inspired by the <a target="_blank" href="https://github.com/matheusfelipeog/beautiful-docs" class="text-indigo-600 font-semibold">Beautiful Docs repository by @matheusfelipeog</a>.
+            </p>
+            <p class="text-lg text-gray-700">
+                The open collaboration and willingness to share resources and information that I've encountered while learning more about documentation have inspired me to "app-ify" this repository and create a community dedicated to showcasing beautiful documentation.
+            </p>
+            <p class="text-lg text-gray-700">
+                In this first iteration of the app, an API, explore the collection of beautiful documents that have already been curated by the community. 
+            </p>
+        </section>
 
-        One of the greatest things about continuing to learn about documentation is that there are so many resources online that other writers are ecstatic to share. This app was inspired by the repo beautiful docs by @[matheusfelipeog](https://github.com/matheusfelipeog).
-    </p>
+        <!-- Section 2 and Section 3 in the same column -->
+        <div class="grid grid-cols-1 gap-8 md:col-span-1">
+            <!-- Section 2: How do I make requests? -->
+            <section class="space-y-4 mb-12">
+                <h2 class="text-3xl font-bold text-gray-800">How do I make requests?</h2>
+                <p class="text-lg text-gray-700">
+                    To get started making API requests, please refer to the  <a href="/getting_started" class="text-indigo-600 font-semibold">Get Started</a> section.
+                </p>
+                <p class="text-lg text-gray-700">
+                    A collection of Postman documentation <a target="_blank" href="https://www.postman.com/lunar-module-pilot-45241596/workspace/moonrocks-dev/collection/39725176-2f855588-6429-457e-872a-9e529c4a3a83?action=share&source=copy-link&creator=39725176&active-environment=db4ab1f4-3b05-46cc-ab2c-5d0ac30cc4f2" class="text-indigo-600 font-semibold" target="_blank">can be viewed here.</a>
+                </p>
+            </section>
 
-    <blockquote 
-        cite="https://github.com/matheusfelipeog/beautiful-docs"
-        class="p-4 my-4 border-s-4 border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-gray-800">
-        <p class="text-xl italic font-medium leading-relaxed text-gray-900 dark:text-white">"Documentation and other resources will make or break the success of your project. And the more open and collaborative you want development to be, the more crucial docs become.
-        With that in mind, here's a list of docs and other developer resources that myself and others find particularly useful, well-written, and otherwise "beautiful." May they serve to inspire you when writing and designing yours."</p>
-    </blockquote>
+            <!-- Section 3: How is the app made? -->
+            <section class="space-y-4">
+                <h2 class="text-3xl font-bold text-gray-800">How is the app made?</h2>
+                <p class="text-lg text-gray-700">
+                    The app is made using <span class="font-semibold text-slate-600">Ruby on Rails</span> and is styled using <span class="font-semibold text-slate-600">Tailwind CSS</span>. The API is documented using <span class="font-semibold text-slate-600">Swagger</span>, <span class="font-semibold text-slate-600">Open API</span>, and <span class="font-semibold text-slate-600">Postman</span> and adheres to the <span class="font-semibold text-slate-600">JSON:API specification</span>. The app is hosted on <span class="font-semibold text-slate-600">Render</span> and uses a <span class="font-semibold text-slate-600">Postgres</span> database.
+                </p>
+                <p class="text-lg text-gray-700">
+                    For more information and setup instructions visit the project <a href="https://github.com/rachel-moonrocks/beautiful_docs_app" class="text-indigo-600 font-semibold" target="_blank">repository</a>.
+                </p>
+            </section>
 
-    <p>
-        The open collaboration and willingness to share that I have encountered while I have been learning more about documentation has inspired me to “app-ify” this repo and begin to create a community for displaying beautiful documentation.
-    </p>
 
-
+        </div>
+    </div>
 </div>
-<div>
-    <h1 class="text-2xl font-bold">How do I make requests?</h1>
-    <p>
-        To get started making API requests - Getting Started
-    </p>
-
-    <p>
-        check- swagger documentation to see the api documentation 
-        https://www.postman.com/lunar-module-pilot-45241596/workspace/moonrocks-dev/collection/39725176-2f855588-6429-457e-872a-9e529c4a3a83?action=share&source=copy-link&creator=39725176&active-environment=db4ab1f4-3b05-46cc-ab2c-5d0ac30cc4f2
-    </p>
-</div>
-
-
-    <h1 class="text-2xl font-bold">How is the app made?</h1>
-    <p>
-        The app is made using Ruby on Rails and Tailwind CSS. The API is documented using Swagger and Open API. The app is hosted on Render.
-        repo and setup instructions can be found here: https://github.com/rachel-moonrocks/beautiful_docs_app
-    </p>
-
-
-    <p>
-        For more information about the developer - contact
-
-    </p>
-
