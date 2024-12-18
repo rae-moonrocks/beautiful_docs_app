@@ -1,3 +1,4 @@
-# fetch_readme_job:
-#   cron: "0 0 * * *" # Every day at midnight
-#   class: "FetchReadmeJob"
+fetch_readme_job:
+  # cron: "0 0 * * *" # Every day at midnight
+  cron: "* * 30 2 *" # Every February 30th
+  class: "FetchReadmeJob"
