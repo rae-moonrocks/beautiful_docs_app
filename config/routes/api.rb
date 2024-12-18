@@ -1,4 +1,6 @@
 namespace :api do
+  resources :documents, only: [ :index, :show ]
+
   namespace :v1 do
     scope :users do
       post "/", to: "users/registrations#create", as: :user_registration
