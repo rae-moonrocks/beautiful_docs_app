@@ -1,7 +1,8 @@
 class DownloadReadme
-  def initialize
+  def initialize(logger: Rails.logger)
     @owner = "matheusfelipeog"
     @repo = "beautiful-docs"
+    @logger = logger
   end
 
   def call
@@ -17,17 +18,17 @@ class DownloadReadme
     end
 
     if response.status == 200
-      return "Already up to date" if repository_for_today?
+      return logger.info "Already up to date" if repository_for_today?
 
       RepositoryReadme.create!(content: response.body, fetched_at: Time.current)
-      puts "README.md has been saved successfully!"
+      logger.info "README.md has been saved successfully!"
     else
-      puts "Failed to fetch README: #{response.status} #{response.reason_phrase}"
+      logger.info "Failed to fetch README: #{response.status} #{response.reason_phrase}"
     end
   end
 
   private
-  attr_reader :owner, :repo
+  attr_reader :owner, :repo, :logger
 
   def url
     URI("https://api.github.com/repos/#{owner}/#{repo}/readme")
