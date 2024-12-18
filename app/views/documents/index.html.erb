@@ -19,7 +19,13 @@
 
 
 
-<!-- New Document Link -->
-<div class="mt-8">
-  <%= link_to "New document", new_document_path, class: "bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600" %>
-</div>
+<% if user_signed_in? %>
+  <div class="mt-8">
+    <%= link_to "New document", new_document_path, class: "bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600" %>
+  </div>
+<% else %>
+  <div class="mt-8">
+    <%= link_to "Get started and create your first document", new_user_registration_path, class: "bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600" %> 
+    <p class="text-gray-600 mt-2">Already have an account? <%= link_to "Sign in", new_user_session_path, class: "text-blue-500 hover:underline" %></p>
+  </div>
+<% end %>
