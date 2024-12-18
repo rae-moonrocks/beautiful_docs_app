@@ -1,16 +1,25 @@
-<p style="color: green"><%= notice %></p>
+<!-- Notice message -->
+<p class="text-green-600 font-semibold mb-4"><%= notice %></p>
 
 <% content_for :title, "Documents" %>
 
-<h1>Documents</h1>
+<!-- Header -->
+<h1 class="text-2xl font-bold text-gray-800 mb-6">Documents</h1>
 
-<div id="documents">
+<!-- Documents List -->
+<div id="documents" class="space-y-6">
   <% @documents.each do |document| %>
-    <%= render document %>
-    <p>
-      <%= link_to "Show this document", document %>
-    </p>
+    <%= link_to document_path(document), class: "block p-6 border border-gray-200 rounded-lg shadow-lg bg-white hover:bg-gray-100 transition ease-in-out duration-300" do %>
+      <div class="flex flex-col space-y-4">
+        <h2 class="text-lg font-semibold text-gray-800 truncate"><%= document.title %></h2>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
-<%= link_to "New document", new_document_path %>
+
+
+<!-- New Document Link -->
+<div class="mt-8">
+  <%= link_to "New document", new_document_path, class: "bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600" %>
+</div>

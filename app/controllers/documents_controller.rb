@@ -1,15 +1,25 @@
 class DocumentsController < ApplicationController
-  before_action :set_document, only: [ :show ]
-  skip_before_action :verify_authenticity_token
+  before_action :set_document, only: [ :show, :edit ]
+  # skip_before_action :verify_authenticity_token
 
   def index
-    @documents = Document.all
+    @documents = Document.all.limit(5)
+  end
+
+  def new
+    @document = Document.new
   end
 
   def show
   end
 
   def create
+  end
+
+  def edit
+  end
+
+  def update
   end
 
   private
