@@ -1,4 +1,4 @@
-class DocumentsController < ApplicationController
+class Api::DocumentsController < ApplicationController
   before_action :set_document, only: [ :show ]
   skip_before_action :verify_authenticity_token
 
