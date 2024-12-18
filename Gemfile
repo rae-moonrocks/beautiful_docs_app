@@ -80,3 +80,5 @@ gem "tailwindcss-rails", "~> 3.0"
 gem "doorkeeper", "~> 5.8"
 
 gem "faraday", "~> 2.12"
+
+gem "sidekiq", "~> 7.3"
