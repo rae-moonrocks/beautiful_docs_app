@@ -1,0 +1,3 @@
+fetch_readme_job:
+  cron: "0 0 * * *" # Every day at midnight
+  class: "FetchReadmeJob"
