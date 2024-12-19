@@ -1,0 +1,11 @@
+<turbo-stream action="prepend" target="documents">
+  <template>
+    <div id="document_<%= @document.id %>">
+      <%= link_to document_path(@document), data: { turbo_frame: "document_#{@document.id}" }, class: "block p-6 border border-gray-200 rounded-lg shadow-lg bg-white hover:bg-gray-100 transition ease-in-out duration-300 mb-6" do %>
+        <h2 class="text-lg font-semibold text-gray-800 truncate"><%= @document.title %></h2>
+        <p class="text-sm text-gray-600 mt-2"><%= truncate(@document.description, length: 100) %></p>
+      <% end %>
+    </div>
+  </template>
+</turbo-stream>
+<%= turbo_stream.replace "new_document", partial: "form", locals: { document: Document.new } %>

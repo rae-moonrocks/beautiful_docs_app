@@ -3,7 +3,7 @@ class DocumentsController < ApplicationController
   # skip_before_action :verify_authenticity_token
 
   def index
-    @documents = Document.all.limit(5)
+    @documents = Document.order(created_at: :desc).limit(5)
   end
 
   def new
@@ -14,6 +14,18 @@ class DocumentsController < ApplicationController
   end
 
   def create
+    command = document_creator
+    @document = command[:record]
+    if command[:success]
+      respond_to do |format|
+        format.turbo_stream
+        # format.html { redirect_to messages_url }
+      end
+    else
+      respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.update("error_explanation", partial: "documents/form", locals: { document: @document }) }
+      end
+    end
   end
 
   def edit
@@ -30,7 +42,7 @@ class DocumentsController < ApplicationController
   end
 
   def create_document_params
-    params.require(:data).permit(:type, { attributes: [ :url, :title, :description, :contributor ] })
+    params.require(:document).permit(:title, :description, :url, :contributor, :contributor_type)
   end
 
   def document_params
@@ -44,9 +56,14 @@ class DocumentsController < ApplicationController
     # check if url is valid
     # parse contributor for contributor_type
     @document_creator_result ||= begin
-      { success: true, record: Document.create(create_document_params[:attributes]) }
-    rescue ActiveRecord::RecordNotUnique => e
-      { success: false, error: e }
+      document = Document.create(create_document_params)
+      result = { record: document }
+      if document.valid?
+        result[:success] = true
+      else
+        result[:success] = false
+      end
+      result
     end
   end
 end
