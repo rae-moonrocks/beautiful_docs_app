@@ -1,12 +1,4 @@
-<% content_for :title, "New document" %>
-<h1 class="text-7xl font-extrabold  text-gray-800 mt-20">
-  Coming soon...
-</h1>
-
-<%# <%= render "form", document: @document %> 
-
-<br>
-
-<div>
-  <%= link_to "Back to documents", documents_path %>
-</div>
+<%= turbo_frame_tag id="new_document" do%>
+  <% content_for :title, "New document" %>
+  <%= render "form", document: @document %>
+<% end%>
