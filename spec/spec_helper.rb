@@ -21,6 +21,8 @@ SimpleCov.start do
   add_group "Sidekiq", "app/sidekiq"
   add_group "Commands", "app/commands"
 end
+
+
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

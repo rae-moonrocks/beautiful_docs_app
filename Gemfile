@@ -74,6 +74,7 @@ group :test do
   gem "simplecov", require: false
   gem "rspec-sidekiq"
   gem "vcr"
+  gem "shoulda-matchers"
 end
 
 gem "devise", "~> 4.9"

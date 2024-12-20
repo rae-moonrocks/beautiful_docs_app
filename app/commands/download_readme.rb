@@ -23,9 +23,6 @@ class DownloadReadme
     else
       logger.error "Failed to fetch README: HTTP #{response.status} #{response.reason_phrase}"
     end
-  rescue Faraday::ConnectionFailed => e
-    debugger
-    logger.error "Failed to fetch README: #{e.message}"
   end
 
   private
