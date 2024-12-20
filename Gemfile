@@ -71,6 +71,10 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "simplecov", require: false
+  gem "rspec-sidekiq"
+  gem "vcr"
+  gem "shoulda-matchers"
 end
 
 gem "devise", "~> 4.9"

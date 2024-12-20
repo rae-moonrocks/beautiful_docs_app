@@ -114,6 +114,7 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.5.1)
+    docile (1.4.1)
     doorkeeper (5.8.1)
       railties (>= 5)
     dotenv (3.1.7)
@@ -298,6 +299,11 @@ GEM
       rspec-expectations (~> 3.13)
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
+    rspec-sidekiq (5.0.0)
+      rspec-core (~> 3.0)
+      rspec-expectations (~> 3.0)
+      rspec-mocks (~> 3.0)
+      sidekiq (>= 5, < 8)
     rspec-support (3.13.1)
     rswag (2.16.0)
       rswag-api (= 2.16.0)
@@ -351,6 +357,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    shoulda-matchers (6.4.0)
+      activesupport (>= 5.2.0)
     sidekiq (7.3.7)
       connection_pool (>= 2.3.0)
       logger
@@ -361,6 +369,12 @@ GEM
       fugit (~> 1.8, >= 1.11.1)
       globalid (>= 1.0.1)
       sidekiq (>= 6.5.0)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.13.1)
+    simplecov_json_formatter (0.1.4)
     solid_cable (3.0.5)
       actioncable (>= 7.2)
       activejob (>= 7.2)
@@ -411,6 +425,8 @@ GEM
     unicode-display_width (2.6.0)
     uri (1.0.2)
     useragent (0.16.11)
+    vcr (6.3.1)
+      base64
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.1)
@@ -457,11 +473,14 @@ DEPENDENCIES
   rails (~> 8.0.1)
   redcarpet
   rspec-rails
+  rspec-sidekiq
   rswag
   rubocop-rails-omakase
   selenium-webdriver
+  shoulda-matchers
   sidekiq (~> 7.3)
   sidekiq-cron
+  simplecov
   solid_cable
   solid_cache
   solid_queue
@@ -470,6 +489,7 @@ DEPENDENCIES
   thruster
   turbo-rails
   tzinfo-data
+  vcr
   web-console
 
 BUNDLED WITH
