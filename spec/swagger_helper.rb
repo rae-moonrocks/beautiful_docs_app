@@ -50,6 +50,28 @@ RSpec.configure do |config|
       ],
       components: {
         schemas: {
+          document: {
+            type: 'object',
+            properties: {
+              data: {
+                type: 'object',
+                properties: {
+                  id: { type: 'string', example: '99' },
+                  type: { type: 'string', example: 'documents' },
+                  attributes: {
+                    type: 'object',
+                    properties: {
+                      title: { type: 'string', example: 'The Ruby Style Guide' },
+                      url: { type: 'string', example: 'www.examples.com/ruby-style-guide' },
+                      description: { type: 'string', example: 'A community-driven Ruby coding style guide' },
+                      contributor: { type: 'string', example: 'username@github.com' }
+                    },
+                    required: [ 'url' ]
+                  }
+                }
+              }
+            }
+          },
           documents: {
             type: 'object',
             properties: {

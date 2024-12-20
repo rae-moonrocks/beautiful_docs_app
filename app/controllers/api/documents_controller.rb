@@ -79,9 +79,14 @@ class Api::DocumentsController < ApplicationController
     # check if url is valid
     # parse contributor for contributor_type
     @document_creator_result ||= begin
-      { success: true, record: Document.create(create_document_params[:attributes]) }
-    rescue ActiveRecord::RecordNotUnique => e
-      { success: false, error: e }
+      document = Document.create(create_document_params)
+      result = { record: document }
+      if document.valid?
+        result[:success] = true
+      else
+        result[:success] = false
+      end
+      result
     end
   end
 end
