@@ -1,7 +1,7 @@
-class Api::V1::DocumentsController < ApplicationController
+class Api::V1::DocumentsController < ApiController
   before_action :set_document, only: [ :show ]
-  skip_before_action :verify_authenticity_token
-  before_action :doorkeeper_authorize!
+  # skip_before_action :verify_authenticity_token
+  # skip_before_action :doorkeeper_authorize!
 
   def index
     @documents = Document.all
@@ -39,14 +39,14 @@ class Api::V1::DocumentsController < ApplicationController
 
   def create
     if document_creator[:success]
-      render json: DocumentSerializer.new(document_creator_result[:record]).serializable_hash.to_json, status: :created
+      render json: DocumentSerializer.new(document_creator[:record]).serializable_hash.to_json, status: :created
     else
       render json: {
         "errors": [
           {
             "status": 422,
             "source": { "pointer": "/documents" },
-            "detail": document_creator_result[:error].message
+            "detail": document_creator[:error]
           }
         ]
       }.to_json, status: :unprocessable_entity
@@ -81,9 +81,17 @@ class Api::V1::DocumentsController < ApplicationController
     # check if url is valid
     # parse contributor for contributor_type
     @document_creator_result ||= begin
-      { success: true, record: Document.create(create_document_params[:attributes]) }
-    rescue ActiveRecord::RecordNotUnique => e
-      { success: false, error: e }
+      return { success: false, error: "Invalid request" } unless create_document_params[:attributes].present?
+
+      document = Document.create(url: create_document_params[:attributes][:url], title: create_document_params[:attributes][:title], description: create_document_params[:attributes][:description], contributor: create_document_params[:attributes][:contributor])
+      result = { record: document }
+      if document.valid?
+        result[:success] = true
+      else
+        result[:success] = false
+        result[:error] =  document.errors.full_messages.join(", ")
+      end
+      result
     end
   end
 end

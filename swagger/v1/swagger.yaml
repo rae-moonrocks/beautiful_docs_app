@@ -28,7 +28,7 @@ paths:
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/documents"
+                "$ref": "#/components/schemas/document"
         '422':
           description: invalid request
           content:
@@ -54,15 +54,15 @@ paths:
                       properties:
                         title:
                           type: string
-                          example: Nisi inventore eius at.
+                          example: Maiores dolor unde vel.
                         url:
                           type: string
                           format: uri
-                          example: http://examples.com/nisi-inventore-eius-at
+                          example: http://examples.com/maiores-dolor-unde-vel
                         description:
                           type: string
-                          example: A document illustrating the technicalities of Nisi
-                            inventore eius at.
+                          example: A document illustrating the technicalities of Maiores
+                            dolor unde vel.
                         contributor:
                           type: string
                           example: username@github.com
@@ -70,6 +70,8 @@ paths:
       summary: Lists all documents
       tags:
       - Documents
+      security:
+      - bearerAuth: []
       responses:
         '200':
           description: succesful
@@ -100,7 +102,7 @@ paths:
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/documents"
+                "$ref": "#/components/schemas/document"
         '404':
           description: document not found
           content:
@@ -120,6 +122,35 @@ tags:
     url: https://github.com/matheusfelipeog/beautiful-docs
 components:
   schemas:
+    document:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '99'
+            type:
+              type: string
+              example: documents
+            attributes:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: The Ruby Style Guide
+                url:
+                  type: string
+                  example: www.examples.com/ruby-style-guide
+                description:
+                  type: string
+                  example: A community-driven Ruby coding style guide
+                contributor:
+                  type: string
+                  example: username@github.com
+              required:
+              - url
     documents:
       type: object
       properties:
