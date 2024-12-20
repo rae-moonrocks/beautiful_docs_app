@@ -6,25 +6,26 @@ class DownloadReadme
   end
 
   def call
+    return logger.info "Already up to date" if repository_for_today?
+
     conn = Faraday.new(url: url) do |faraday|
       faraday.request :url_encoded           # Encode request parameters
       faraday.response :logger               # Log the request/response
       faraday.adapter Faraday.default_adapter # Use the default adapter (Net::HTTP)
     end
-
     # Make the GET request
     response = conn.get do |req|
       req.headers["Accept"] = "application/vnd.github.v3.raw" # Request raw content
     end
-
     if response.status == 200
-      return logger.info "Already up to date" if repository_for_today?
-
       RepositoryReadme.create!(content: response.body, fetched_at: Time.current)
       logger.info "README.md has been saved successfully!"
     else
-      logger.info "Failed to fetch README: #{response.status} #{response.reason_phrase}"
+      logger.error "Failed to fetch README: HTTP #{response.status} #{response.reason_phrase}"
     end
+  rescue Faraday::ConnectionFailed => e
+    debugger
+    logger.error "Failed to fetch README: #{e.message}"
   end
 
   private

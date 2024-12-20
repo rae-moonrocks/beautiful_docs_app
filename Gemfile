@@ -73,6 +73,7 @@ group :test do
   gem "selenium-webdriver"
   gem "simplecov", require: false
   gem "rspec-sidekiq"
+  gem "vcr"
 end
 
 gem "devise", "~> 4.9"
