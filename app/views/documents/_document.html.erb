@@ -26,14 +26,12 @@
     <span class="font-medium text-gray-700"><%= contributor_name %></span>
   </p>
 
-  <!-- Description Frame -->
   <%= turbo_frame_tag frame_id_description do %>
     <p class="text-gray-600">
       <%= document.description %>
     </p>
   <% end %>
 
-  <!-- Link to Document -->
 <div class="pt-4">
   <%= link_to "View Original Document", document.url, class: "bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-800 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transform hover:scale-105 hover:shadow-xl transition duration-300 ease-in-out", target: :_blank %>
 </div>

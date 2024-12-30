@@ -1,11 +1,6 @@
 <%= form_with(model: document) do |form| %>
   <div class="relative">
-    <%# TODO: Add functionality %>
-    <button type="button" class="absolute top-0 right-0 p-2 text-gray-600 hover:text-gray-900 focus:outline-none">
-      <span class="text-xl">&times;</span>
-    </button>
-
-     <turbo-frame id="error_explanation">
+    <turbo-frame id="error_explanation">
       <% if document.errors.any? %>
         <h2><%= pluralize(document.errors.count, "error") %> prohibited this document from being saved:</h2>
         <ul>
@@ -16,34 +11,33 @@
       <% end %>
     </turbo-frame>
 
-
     <div class="mb-4">
       <%= form.label :title, class: "block text-gray-700 font-medium" %>
-      <%= form.text_field :title, placeholder: "Ruby on Rails Guides", class: "mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" %>
+      <%= form.text_field :title, placeholder: "Ruby on Rails Guides", class: "" %>
     </div>
     
     <div class="mb-4">
       <%= form.label :description, class: "block text-gray-700 font-medium" %>
-      <%= form.text_field :description, placeholder: "Well-structured and filled with practical examples that make concepts easy to grasp", class: "mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" %>
+      <%= form.text_field :description, placeholder: "Well-structured and filled with practical examples that make concepts easy to grasp", class: "" %>
     </div>
     
     <div class="mb-4">
       <%= form.label :contributor, "Username", class: "block text-gray-700 font-medium" %>
-      <%= form.text_field :contributor, placeholder: "myUsername", class: "mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" %>
+      <%= form.text_field :contributor, placeholder: "myUsername", class: "" %>
     </div>    
     
     <div class="mb-4">
-      <%= form.label :contributor_type, 'Usesrname Site', class: "block text-gray-700 font-medium" %>
+      <%= form.label :contributor_type, 'Username Site', class: "block text-gray-700 font-medium" %>
        <%= form.select :contributor_type, [ 'Github', 'Twitter' ], :prompt => 'Select One' %>
     </div>
 
     <div class="mb-4">
       <%= form.label :url, class: "block text-gray-700 font-medium" %>
-      <%= form.text_field :url, placeholder: "https://guides.rubyonrails.org/", class: "mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" %>
+      <%= form.text_field :url, placeholder: "https://guides.rubyonrails.org/", class: "" %>
     </div>
 
     <div class="mb-4">
-      <%= form.submit "Submit", class: "w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500" %>
+      <%= form.submit "Submit", class: "" %>
     </div>
   </div>
 <% end %>

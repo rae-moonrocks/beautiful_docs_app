@@ -1,4 +1,4 @@
-<%= turbo_frame_tag id="new_document" do%>
-  <% content_for :title, "New document" %>
+
+<%= render TurboModalComponent.new do %>
   <%= render "form", document: @document %>
-<% end%>
+<% end %>

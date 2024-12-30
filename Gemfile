@@ -86,3 +86,5 @@ gem "faraday", "~> 2.12"
 
 gem "sidekiq", "~> 7.3"
 gem "sidekiq-cron"
+
+gem "view_component", "~> 3.21"
