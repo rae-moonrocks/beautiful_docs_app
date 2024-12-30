@@ -462,13 +462,13 @@ DEPENDENCIES
   brakeman
   capybara
   debug
-  devise (~> 4.9)
-  doorkeeper (~> 5.8)
+  devise
+  doorkeeper
   dotenv
   factory_bot
   faker
-  faraday (~> 2.12)
-  friendly_id (~> 5.5.0)
+  faraday
+  friendly_id
   importmap-rails
   jbuilder
   jsonapi-serializer
@@ -485,19 +485,19 @@ DEPENDENCIES
   rubocop-rails-omakase
   selenium-webdriver
   shoulda-matchers
-  sidekiq (~> 7.3)
+  sidekiq
   sidekiq-cron
   simplecov
   solid_cable
   solid_cache
   solid_queue
   stimulus-rails
-  tailwindcss-rails (~> 3.1)
+  tailwindcss-rails
   thruster
   turbo-rails
   tzinfo-data
   vcr
-  view_component (~> 3.21)
+  view_component
   web-console
 
 BUNDLED WITH
