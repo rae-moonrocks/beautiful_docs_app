@@ -1,0 +1,18 @@
+<%= turbo_frame_tag "modal", class: "modal-frame" do %>
+  <%= tag.div data: { controller: "turbo-modal", action: "turbo:submit-end->turbo-modal#submitEnd"}, 
+              class: "fixed inset-0 flex items-center justify-center bg-black bg-opacity-50" do %>
+    <%= tag.div class: "bg-white rounded-lg shadow-lg w-full max-w-md" do %>
+      <div class="flex items-center justify-between border-b p-4">
+        <%= button_tag "Close", 
+          data: { action: "turbo-modal#hideModal" }, 
+          type: "button", 
+          class: "p-2 hover:text-gray-900 focus:outline-none" do %>
+          <span class="text-xl">&times;</span>
+        <% end %>
+      </div>
+      <div id="modal_content" class="p-6">
+        <%= content %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

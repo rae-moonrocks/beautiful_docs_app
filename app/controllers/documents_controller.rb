@@ -23,7 +23,7 @@ class DocumentsController < ApplicationController
       end
     else
       respond_to do |format|
-        format.turbo_stream { render turbo_stream: turbo_stream.update("error_explanation", partial: "documents/form", locals: { document: @document }) }
+        format.turbo_stream { render turbo_stream: turbo_stream.update("modal_content", partial: "documents/form", locals: { document: @document }) }
       end
     end
   end
