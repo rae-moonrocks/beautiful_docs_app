@@ -1,11 +1,5 @@
 source "https://rubygems.org"
 
-gem "redcarpet"
-gem "nokogiri"
-gem "jsonapi-serializer"
-gem "rswag"
-gem "friendly_id", "~> 5.5.0"
-
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.1"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
@@ -77,14 +71,15 @@ group :test do
   gem "shoulda-matchers"
 end
 
-gem "devise", "~> 4.9"
-
-gem "tailwindcss-rails", "~> 3.1"
-gem "doorkeeper", "~> 5.8"
-
-gem "faraday", "~> 2.12"
-
-gem "sidekiq", "~> 7.3"
+gem "redcarpet"
+gem "nokogiri"
+gem "jsonapi-serializer"
+gem "rswag"
+gem "friendly_id"
+gem "devise"
+gem "tailwindcss-rails"
+gem "doorkeeper"
+gem "faraday"
+gem "sidekiq"
 gem "sidekiq-cron"
-
-gem "view_component", "~> 3.21"
+gem "view_component"
