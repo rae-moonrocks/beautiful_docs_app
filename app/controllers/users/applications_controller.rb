@@ -21,34 +21,14 @@ module Users
 
     def refresh_token
       @application = Doorkeeper::Application.find_by(id: params[:id], owner_id: current_user.id)
-      if @application
-        # clean this up
-        access_token = Doorkeeper::AccessToken.find_by(resource_owner_id: current_user.id, revoked_at: nil)
-
-        if access_token.nil?
-          access_token = create_access_token(current_user, @application)
-          response = Faraday.post("#{ENV['SERVER_URL']}/oauth/token", {
-            client_id: @application.uid,
-            client_secret: @application.secret,
-            refresh_token: access_token&.refresh_token,
-            grant_type: "refresh_token"
-          })
-
-          if response.status == 200
-            # new_token_info = JSON.parse(response.body)
-            flash[:notice] = "Token refreshed successfully"
-            redirect_to users_application_path(@application.id)
-          else
-            flash[:error] = "Failed to refresh token"
-          end
-        else
-          redirect_to users_application_path(@application.id)
-        end
-
-
+      if token = Doorkeeper::AccessToken.where(resource_owner_id: current_user.id, application_id: @application.id)
+        token.each { |t| t.revoke }
+        @user_access_token = create_access_token(current_user, @application)
+        flash[:notice] = "Token refreshed successfully"
+        redirect_to users_application_path(@application.id)
       else
-        flash[:error] = "Application not found"
-        redirect_to users_applications_path
+        flash[:error] = "Token not found"
+        redirect_to users_application_path(@application.id)
       end
     end
 
