@@ -1,7 +1,7 @@
 <h1>Application Details</h1>
 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <table class="mt-2 w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
@@ -23,14 +23,23 @@
 
             <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                 <td class="px-6 py-4">
-                    Access token: <%= @access_token&.token %>
+                    access_token:
+                    <span data-controller="obfuscated-text-visibility" data-obfuscated-text-visibility-content="<%= @access_token&.token %>">
+                    <span data-obfuscated-text-visibility-target="text">••••••••</span>
+                    <button type="button" 
+                            data-obfuscated-text-visibility-target="button" 
+                            data-action="obfuscated-text-visibility#toggle" 
+                            class="cursor-pointer">
+                        <span class="material-icons">visibility</span>
+                    </button>
+                    </span>
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
 
-<%= button_to "Refresh token", users_refresh_token_path, method: :post, data: { turbo_method: :post }, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+<%= button_to "Refresh token", users_refresh_token_path, method: :post, data: { turbo_method: :post }, class: "mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
 
 <%# <%= link_to 'Edit', edit_user_application_path(@application) %> 
 <%# <%= link_to 'Back', user_applications_path %> 
